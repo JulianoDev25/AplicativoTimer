@@ -1,10 +1,7 @@
-# ⏱️ Aplicativo de Temporizador (Timer)
+Aplicativo de Temporizador (Timer)
 
 Um aplicativo moderno, leve e elegante de cronômetro regressivo com animação circular, alarme sonoro integrado e suporte a notificações.
-
----
-
-## ✨ Recursos
+ Recursos
 
 - **Contador Preciso**: Lógica anti-deriva (*anti-drift*) baseada em timestamps do sistema.
 - **Anel de Progresso Circular**: Animação em SVG com feedback visual em tempo real.
@@ -14,11 +11,3 @@ Um aplicativo moderno, leve e elegante de cronômetro regressivo com animação 
 - **Aviso na Aba e Notificações**: O título da aba do navegador mostra a contagem regressiva em tempo real.
 - **Modo Escuro Elegante**: Interface moderna com efeito glassmorphism e tipografia limpa.
 
----
-
-## 🚀 Como Executar
-
-Basta abrir o arquivo `index.html` em qualquer navegador moderno (Chrome, Edge, Firefox, Brave, Safari, etc.):
-
-1. Navegue até a pasta `C:\Users\Marci\.gemini\antigravity\scratch\timer-app\`.
-2. Dê um duplo clique no arquivo [`index.html`](index.html).
