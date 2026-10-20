@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-decor">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+  </div>
+
+  <main class="app-card">
+    <header class="app-header">
+      <div class="header-title">
+        <svg class="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <h1>Temporizador</h1>
+      </div>
+      <button id="soundToggle" class="icon-button" title="Ativar/desativar som" aria-label="Alternar som">
+        <svg id="soundIconOn" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+        <svg id="soundIconOff" class="icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <line x1="23" y1="9" x2="17" y2="15"></line>
+          <line x1="17" y1="9" x2="23" y2="15"></line>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Circular Progress Display -->
+    <div class="timer-display-wrapper">
+      <svg class="progress-ring" viewBox="0 0 300 300">
+        <circle class="progress-ring-bg" cx="150" cy="150" r="130" />
+        <circle id="progressCircle" class="progress-ring-circle" cx="150" cy="150" r="130" />
+      </svg>
+      
+      <div class="timer-center-content">
+        <div id="timeText" class="time-text">05:00</div>
+        <div id="statusLabel" class="status-label">Pronto</div>
+      </div>
+    </div>
+
+    <!-- Quick Adjust (+1m, +5m) -->
+    <div class="quick-adjust-group" id="quickAdjustGroup">
+      <button class="btn-chip" data-add="60">+1 min</button>
+      <button class="btn-chip" data-add="300">+5 min</button>
+      <button class="btn-chip" data-add="600">+10 min</button>
+    </div>
+
+    <!-- Input Configuration (Visible when stopped) -->
+    <div id="inputSection" class="input-section">
+      <label class="section-label">Definir Tempo Manual</label>
+      <div class="time-inputs">
+        <div class="input-field">
+          <input type="number" id="inputHours" min="0" max="99" value="0" placeholder="00">
+          <span>h</span>
+        </div>
+        <span class="colon">:</span>
+        <div class="input-field">
+          <input type="number" id="inputMinutes" min="0" max="59" value="5" placeholder="05">
+          <span>min</span>
+        </div>
+        <span class="colon">:</span>
+        <div class="input-field">
+          <input type="number" id="inputSeconds" min="0" max="59" value="0" placeholder="00">
+          <span>seg</span>
+        </div>
+      </div>
+      <button id="btnSetCustom" class="btn-secondary">Aplicar Tempo</button>
+    </div>
+
+    <!-- Presets -->
+    <div class="presets-section">
+      <span class="section-label">Predefinições Rápidas</span>
+      <div class="presets-grid">
+        <button class="preset-btn" data-seconds="60">1 min</button>
+        <button class="preset-btn active" data-seconds="300">5 min</button>
+        <button class="preset-btn" data-seconds="900">15 min</button>
+        <button class="preset-btn" data-seconds="1500">25 min (Pomodoro)</button>
+      </div>
+    </div>
+
+    <!-- Primary Action Controls -->
+    <div class="controls-section">
+      <button id="btnReset" class="btn-action secondary" title="Reiniciar">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+          <path d="M3 3v5h5"></path>
+        </svg>
+        <span>Zerar</span>
+      </button>
+
+      <button id="btnStartPause" class="btn-action primary">
+        <svg id="iconPlay" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+        <svg id="iconPause" class="icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="6" y="4" width="4" height="16"></rect>
+          <rect x="14" y="4" width="4" height="16"></rect>
+        </svg>
+        <span id="startPauseText">Iniciar</span>
+      </button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
